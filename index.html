@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .addMangaPopin {
+        display: none;
+    }
+
+    .addMangaPopin.open {
+        display: block;
+    }
+
+    .sortMangaPopin {
+        display: none;
+    }
+
+    .sortMangaPopin.open {
+        display: block;
+    }
+</style>
+
+    <div id="app">
+        <table>
+            <tr>
+                <th>Nom manga</th>
+                <th>Editeur</th>
+                <th>Nb Tome</th>
+            </tr>
+            <tr v-for="manga in mangas">
+                <td>{{ manga.title }}</td>
+                <td>{{ manga.editor }}</td>
+                <td>{{ manga.nbTome }}</td>
+            </tr>
+        </table>
+
+        <button v-on:click="openPopinManga">Ajouter un manga</button>
+        <button v-on:click="openPopinBiblio">Trier bibliothèque</button>
+        <button v-on:click="createCSV">Exporter CSV</button>
+
+        <div class="addMangaPopin" v-bind:class="{ open: popinAdd }">
+            <h3>Ajouter un manga</h3>
+            <input type="text" placeholder="nom manga" v-model="mangaTitle">
+            <input type="text" placeholder="editeur" v-model="mangaEditor">
+            <button v-on:click="addManga">Ajouter !</button>
+        </div>
+
+        <div class="sortMangaPopin" v-bind:class="{ open: popinSort }">
+            <h3>Trier ma bibliothèque</h3>
+            <button v-on:click="sortTitle">Trier par nom</button>
+            <button v-on:click="sortEditor">Trier par éditeur</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
