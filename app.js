@@ -5,12 +5,36 @@ var app = new Vue({
       {
         title: 'Le mari de mon frère',
         editor: 'Akata',
-        nbTome: '20'
+        numTome: 1,
+        color: '#fff8b3'
+      },
+      {
+        title: 'Le mari de mon frère',
+        editor: 'Akata',
+        numTome: 2,
+        color: '#fff8b3'
+      },{
+        title: 'Le mari de mon frère',
+        editor: 'Akata',
+        numTome: 3,
+        color: '#fff8b3'
+      },{
+        title: 'Le mari de mon frère',
+        editor: 'Akata',
+        numTome: 4,
+        color: '#fff8b3'
       },
       {
         title: 'Full Metal Alchemist',
         editor: 'Kurokawa',
-        nbTome: '2'
+        numTome: 1,
+        color: '#868686'
+      },
+      {
+        title: 'Test',
+        editor: 'Kurokawa',
+        numTome: 40,
+        color: '#ffa7ac'
       }
     ],
     popinAdd : false,
@@ -28,13 +52,16 @@ var app = new Vue({
     addManga: function () {
       var newManga = {
         title : '',
-        editor : ''
+        editor : '',
+        color: ''
       };
       newManga.title = this.mangaTitle;
       newManga.editor = this.mangaEditor;
+      newManga.color = this.mangaColor;
       this.mangas.push(newManga);
       this.mangaTitle = '';
       this.mangaEditor = '';
+      this.mangaColor = '';
       this.popinAdd = false;
     },
     sortTitle: function () {
