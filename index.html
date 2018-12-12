@@ -3,40 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
 </head>
 <body>
 
-<style>
-    .addMangaPopin {
-        display: none;
-    }
-
-    .addMangaPopin.open {
-        display: block;
-    }
-
-    .sortMangaPopin {
-        display: none;
-    }
-
-    .sortMangaPopin.open {
-        display: block;
-    }
-</style>
+<!-- 45 mangas par lignes pour commencer -->
 
     <div id="app">
-        <table>
-            <tr>
-                <th>Nom manga</th>
-                <th>Editeur</th>
-                <th>Nb Tome</th>
-            </tr>
-            <tr v-for="manga in mangas">
-                <td>{{ manga.title }}</td>
-                <td>{{ manga.editor }}</td>
-                <td>{{ manga.nbTome }}</td>
-            </tr>
-        </table>
+        <div class="biblio">
+            <div class="tomes">
+                <div class="tome" v-for="manga in mangas" class="tomes" v-bind:style="{ backgroundColor: manga.color }">
+                    <span>{{ manga.title }}</span>
+                    <span>{{ manga.editor }}</span>
+                    <span>{{ manga.numTome}}</span>
+                </div>
+            </div>
+        </div>
 
         <button v-on:click="openPopinManga">Ajouter un manga</button>
         <button v-on:click="openPopinBiblio">Trier bibliothèque</button>
@@ -46,6 +28,7 @@
             <h3>Ajouter un manga</h3>
             <input type="text" placeholder="nom manga" v-model="mangaTitle">
             <input type="text" placeholder="editeur" v-model="mangaEditor">
+            <input type="color" placeholder="" v-model="mangaColor">
             <button v-on:click="addManga">Ajouter !</button>
         </div>
 
