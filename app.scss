@@ -1,0 +1,33 @@
+.addMangaPopin {
+  display: none;
+}
+
+.addMangaPopin.open {
+  display: block;
+}
+
+.sortMangaPopin {
+  display: none;
+}
+
+.sortMangaPopin.open {
+  display: block;
+}
+
+.tome {
+  font-size: 10px;
+  writing-mode: vertical-rl;
+  padding: 3px;
+  border: 1px solid #363135;
+}
+
+.tomes {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.biblio {
+
+  width: 500px;
+  border: 5px solid #000;
+}
